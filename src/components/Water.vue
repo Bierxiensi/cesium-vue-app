@@ -20,25 +20,23 @@ onMounted(async () => {
     viewer.entities.add({
       polygon: {
         hierarchy: Cesium.Cartesian3.fromDegreesArray(positions),
-        material: Cesium.Color.RED.withAlpha(0.5),
+        material: new Cesium.Color.fromBytes(64, 157, 253, 150),
         extrudedHeight: new Cesium.CallbackProperty(function () {
           return waterHeight;
         }, false),
       },
     });
     viewer.scene.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(119.5, 30, 300000),
+      destination: Cesium.Cartesian3.fromDegrees(119.5, 30, 30000),
       duration: 2,
     });
     waterInterval = setInterval(() => {
         if (waterHeight < targetHeight) {
-            waterHeight += 1
+            waterHeight += 100
             if (waterHeight >= targetHeight) {
             waterHeight = targetHeight
                 clearInterval(waterInterval)
             }
-            // 使用该方式会闪烁，改用 Cesium.CallbackProperty 平滑
-            // this.waterEntity.polygon.extrudedHeight.setValue(startHeight)
         }
     }, 1000);
   } 
