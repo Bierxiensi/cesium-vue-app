@@ -2,19 +2,21 @@
   <div>
     <!-- <CesiumWithHeatLine /> -->
 
-    <Water />
+    <!-- <Water /> -->
     <!-- <WaterTurf /> -->
     <!-- <WaterPostProcess /> -->
     <!-- <LineLayer /> -->
     <!-- <HeatFlowPolyline /> -->
     <!-- <FlightHeatmapDemo /> -->
    <!--  <HeatFlightLayer /> -->
+   <HeatLine />
   </div>
 </template>
 
 <script setup>
 import { onMounted } from "vue";
 import Water from "./components/Water.vue";
+import HeatLine from "./components/HeatLine.vue";
 import WaterTurf from "./components/WaterTurf.vue";
 import LineLayer from "./components/LineLayer.vue";
 import WaterPostProcess from "./components/WaterPostProcess.vue";
